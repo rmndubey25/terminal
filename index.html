@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberSec Terminal - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Matrix Background -->
+    <canvas id="matrix-canvas"></canvas>
+    
+    <!-- Terminal Container -->
+    <div class="terminal-container">
+        <div class="terminal-header">
+            <div class="terminal-controls">
+                <span class="control close"></span>
+                <span class="control minimize"></span>
+                <span class="control maximize"></span>
+            </div>
+            <div class="terminal-title">root@raman-terminal:~</div>
+        </div>
+        
+        <div class="terminal-body">
+            <div id="terminal-output">
+                <div class="terminal-line">
+                    <span class="ascii-art">
+    ██████╗  █████╗ ███╗   ███╗ █████╗ ███╗   ██╗
+    ██╔══██╗██╔══██╗████╗ ████║██╔══██╗████╗  ██║
+    ██████╔╝███████║██╔████╔██║███████║██╔██╗ ██║
+    ██╔══██╗██╔══██║██║╚██╔╝██║██╔══██║██║╚██╗██║
+    ██║  ██║██║  ██║██║ ╚═╝ ██║██║  ██║██║ ╚████║
+    ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝
+                    </span>
+                </div>
+                <div class="terminal-line">
+                    <span class="info-text">Welcome to Raman's Terminal v2.1.0</span>
+                </div>
+                <div class="terminal-line">
+                    <span class="info-text">Type 'help' before you get lost in universe!!</span>
+                </div>
+                <div class="terminal-line">
+                    <span class="warning-text">⚠️  Warning: This is a simulated environment for educational purposes only</span>
+                </div>
+                <div class="terminal-line"></div>
+            </div>
+            
+            <div class="input-line">
+                <span class="prompt">root@raman:~$ </span>
+                <input type="text" id="terminal-input" class="terminal-input" autofocus>
+            </div>
+        </div>
+    </div>
+
+    <script src="matrix.js"></script>
+    <script src="terminal.js"></script>
+</body>
+</html>
