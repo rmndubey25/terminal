@@ -1,24 +1,3 @@
-# CyberSec Terminal Portfolio
-
-A cybersecurity-themed fake terminal UI portfolio with interactive commands, matrix background, and hacker aesthetics.
-
-## How to Run
-
-### Option 1: Python Server (Recommended)
-```bash
-python3 run.py
-```
-
-### Option 2: Simple HTTP Server
-```bash
-python -m http.server 8000 --bind 0.0.0.0
-```
-
-### Option 3: Using the script
-```bash
-./start.sh
-```
-
 ## Features
 
 - Interactive terminal interface with authentic styling
@@ -62,5 +41,3 @@ Edit the content in `terminal.js` to customize:
 - `style.css` - Cybersecurity-themed styling
 - `terminal.js` - Terminal logic and commands
 - `matrix.js` - Matrix background animation
-- `run.py` - Python server script
-- `start.sh` - Start script
