@@ -12,7 +12,6 @@ body {
     height: 100vh;
 }
 
-/* Matrix Background */
 #matrix-canvas {
     position: fixed;
     top: 0;
@@ -23,7 +22,6 @@ body {
     opacity: 0.3;
 }
 
-/* Terminal Container */
 .terminal-container {
     position: absolute;
     top: 50%;
@@ -41,7 +39,6 @@ body {
     overflow: hidden;
 }
 
-/* Terminal Header */
 .terminal-header {
     display: flex;
     justify-content: space-between;
@@ -81,7 +78,6 @@ body {
     font-weight: 500;
 }
 
-/* Terminal Body */
 .terminal-body {
     padding: 20px;
     height: calc(100% - 50px);
@@ -132,7 +128,6 @@ body {
     font-weight: bold;
 }
 
-/* Input Line */
 .input-line {
     display: flex;
     align-items: center;
@@ -157,7 +152,6 @@ body {
     margin-left: 2px;
 }
 
-/* Animations */
 @keyframes blink {
     0%, 50% { opacity: 1; }
     51%, 100% { opacity: 0; }
@@ -173,7 +167,6 @@ body {
     to { width: 100%; }
 }
 
-/* Scrollbar */
 ::-webkit-scrollbar {
     width: 8px;
 }
@@ -191,7 +184,6 @@ body {
     background: #00cc00;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     .terminal-container {
         width: 95%;
@@ -207,7 +199,6 @@ body {
     }
 }
 
-/* Command Output Styling */
 .command-output {
     margin-left: 20px;
     color: #cccccc;
@@ -249,7 +240,6 @@ body {
     100% { content: '|'; }
 }
 
-/* Hacker effect */
 .hacker-effect {
     animation: hack 0.1s linear infinite;
 }
@@ -268,7 +258,6 @@ body {
     100% { transform: translateX(0); }
 }
 
-/* Glitch effect for destruction */
 .glitch {
     animation: glitch 0.3s infinite;
 }
