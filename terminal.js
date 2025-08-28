@@ -33,7 +33,6 @@ All content is organized in separate methods for easy management!
 ====================================================================
 */
 
-// Terminal functionality
 class Terminal {
     constructor() {
         this.output = document.getElementById('terminal-output');
@@ -44,11 +43,9 @@ class Terminal {
         this.username = 'root';
         this.hostname = 'cybersec';
         
-        // Simple directory structure
         this.directoryStack = ['/home/cybersec'];
         this.currentPath = '/home/cybersec';
         
-        // Debug: Check if elements exist
         console.log('Terminal output element:', this.output);
         console.log('Terminal input element:', this.input);
         
@@ -57,7 +54,6 @@ class Terminal {
         this.initializeFileSystem();
         this.focus();
         
-        // Add initial greeting
         this.addOutput('', '');
         this.addOutput('Terminal initialized successfully! Type "help" for available commands.', 'success-text');
     }
@@ -163,8 +159,7 @@ class Terminal {
     }
     
     initializeFileSystem() {
-        // EASY FILE SYSTEM CONFIGURATION
-        // To add new files/folders, just add them to this structure
+
         this.fileSystem = this.createFileSystemStructure();
     }
 
@@ -196,7 +191,6 @@ class Terminal {
         };
     }
 
-    // EASY PROJECT MANAGEMENT - Add new projects here
     getProjectFiles() {
         return {
             'project1.txt': { type: 'file', size: '1.2K' },
@@ -205,7 +199,6 @@ class Terminal {
         };
     }
 
-    // EASY BLOG MANAGEMENT - Add new blog posts here
     getBlogFiles() {
         return {
             'welcome.md': { type: 'file', size: '3.2K' },
@@ -215,7 +208,6 @@ class Terminal {
         };
     }
 
-    // EASY IMAGE MANAGEMENT - Add new images here
     getImageFiles() {
         return {
             'security-icon.svg': { type: 'file', size: '1.2K' },
@@ -311,7 +303,6 @@ class Terminal {
         }
     }
     
-    // Command implementations
     showHelp(args) {
         if (args.length === 0) {
             this.addOutput('Available commands:', 'info-text');
@@ -377,8 +368,6 @@ class Terminal {
         
         const filename = args[0];
         
-        // EASY FILE CONTENT MANAGEMENT
-        // All file contents are organized in separate methods for easy editing
         const files = this.getAllFileContents();
         
         if (files[filename]) {
@@ -388,21 +377,15 @@ class Terminal {
         }
     }
 
-    // EASY CONTENT MANAGEMENT - All file contents in one place
     getAllFileContents() {
         return {
-            // Basic portfolio files
             ...this.getPortfolioFiles(),
-            // Blog posts
             ...this.getBlogContents(),
-            // Project descriptions  
             ...this.getProjectContents(),
-            // Image/asset files
             ...this.getAssetContents()
         };
     }
 
-    // PORTFOLIO FILES - Easy to edit personal info
     getPortfolioFiles() {
         return {
             'about.txt': `
@@ -460,7 +443,6 @@ class Terminal {
         };
     }
 
-    // BLOG POSTS - Easy to add new blog posts
     getBlogContents() {
         return {
             'welcome.md': `
@@ -726,7 +708,6 @@ A security incident response automation platform.
         };
     }
 
-    // PROJECT DESCRIPTIONS - Easy to add new projects
     getProjectContents() {
         return {
             'project1.txt': `
@@ -791,7 +772,6 @@ A security incident response automation platform.
         };
     }
 
-    // ASSET FILES - Images and other resources
     getAssetContents() {
         return {
             'security-icon.svg': `
@@ -1073,7 +1053,6 @@ round-trip min/avg/max/stddev = 15.2/28.7/45.1/12.4 ms`, 'info-text');
                     }
                 }, 500);
                 
-                // Add glitch effect
                 document.querySelector('.terminal-container').classList.add('glitch');
             }, 2000);
         }, 1000);
@@ -1139,7 +1118,6 @@ Welcome to the real world.`, 'success-text');
     
     changeDirectory(args) {
         if (args.length === 0) {
-            // cd with no arguments goes to home directory
             this.currentPath = '/home/cybersec';
             this.currentDirectory = '/home/cybersec';
             return;
@@ -1147,11 +1125,9 @@ Welcome to the real world.`, 'success-text');
         
         const targetDir = args[0];
         
-        // Handle special cases
         if (targetDir === '..') {
-            // Go back to parent directory
             const pathParts = this.currentPath.split('/').filter(part => part !== '');
-            if (pathParts.length > 2) { // Don't go above /home/cybersec
+            if (pathParts.length > 2) { 
                 pathParts.pop();
                 this.currentPath = '/' + pathParts.join('/');
                 this.currentDirectory = this.currentPath;
@@ -1160,13 +1136,11 @@ Welcome to the real world.`, 'success-text');
         }
         
         if (targetDir === '~') {
-            // Go to home directory
             this.currentPath = '/home/cybersec';
             this.currentDirectory = '/home/cybersec';
             return;
         }
         
-        // Handle absolute paths
         if (targetDir.startsWith('/')) {
             if (this.fileSystem[targetDir] && this.fileSystem[targetDir].type === 'directory') {
                 this.currentPath = targetDir;
@@ -1177,10 +1151,8 @@ Welcome to the real world.`, 'success-text');
             return;
         }
         
-        // Handle relative paths
         const newPath = this.currentPath + (this.currentPath.endsWith('/') ? '' : '/') + targetDir;
         
-        // Check if the target directory exists in current directory
         const currentDir = this.fileSystem[this.currentPath];
         if (currentDir && currentDir.contents && currentDir.contents[targetDir] && currentDir.contents[targetDir].type === 'directory') {
             if (this.fileSystem[newPath]) {
@@ -1202,7 +1174,6 @@ Welcome to the real world.`, 'success-text');
     }
 }
 
-// Initialize terminal when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     new Terminal();
 });
